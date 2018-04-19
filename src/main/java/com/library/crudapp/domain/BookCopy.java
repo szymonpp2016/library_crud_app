@@ -22,14 +22,10 @@ public class BookCopy {
     @Column(name = "BOOKCOPYID", unique = true)
     private int bookCopyId;
 
-   // @Column(name = "BOOKID")
-   // private int bookId;
-
     @Column(name = "BOOK_STATUS")
     private String bookStatus;
 
-
-    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.ALL , fetch = FetchType.EAGER)
     @JoinColumn(name="BOOKID")
     private Book book;
 

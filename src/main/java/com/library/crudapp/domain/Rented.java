@@ -22,12 +22,6 @@ public class Rented {
     @Column(name = "RENTEDID", unique = true)
     private int renetedId;
 
-  //  @Column(name = "BOOKCOPYID")
-  //  private int bookCopyId;
-
-  //  @Column(name = "USERID")
-  //  private int userId;
-
     @Column(name = "RENTED_DATE")
     private Date rentedDate;
 

@@ -29,7 +29,6 @@ public class Book {
     @Column(name = "YEAR_OF_PUBLICATION")
     private int yearOfPublication;
 
-
     @OneToMany   (targetEntity = BookCopy.class,
             mappedBy = "book",
             cascade = CascadeType.ALL,
