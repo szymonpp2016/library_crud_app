@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Getter
 @Setter
@@ -27,6 +28,13 @@ public class Book {
 
     @Column(name = "YEAR_OF_PUBLICATION")
     private int yearOfPublication;
+
+
+    @OneToMany   (targetEntity = BookCopy.class,
+            mappedBy = "book",
+            cascade = CascadeType.ALL,
+            fetch=FetchType.EAGER)
+    private List<Book> readBook;
 
     public Book(String title, String author, int yearOfPublication) {
         this.title=title;

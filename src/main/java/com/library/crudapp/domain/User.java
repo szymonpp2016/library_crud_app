@@ -7,6 +7,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
+import java.util.Optional;
 
 @Getter
 @Setter
@@ -29,6 +31,12 @@ public class User {
 
     @Column(name = "REGISTRATION_DATE")
     private String registartionDate;
+
+    @OneToMany   (targetEntity = Rented.class,
+    mappedBy = "user",
+    cascade = CascadeType.ALL,
+    fetch=FetchType.EAGER)
+    private List<Rented> readRented;
 
     public User(String firstName, String lastName, String registartionDate) {
         this.firstName = firstName;
