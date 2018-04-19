@@ -1,6 +1,7 @@
 package com.library.crudapp.domain;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -18,7 +19,7 @@ import java.util.Optional;
 public class User {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @NotNull
     @Column(name = "USERID", unique = true)
     private int userId;
@@ -38,7 +39,7 @@ public class User {
     fetch=FetchType.EAGER)
     private List<Rented> readRented;
 
-    public User(String firstName, String lastName, String registartionDate) {
+      public User( String firstName, String lastName, String registartionDate) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.registartionDate = registartionDate;
