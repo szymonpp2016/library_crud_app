@@ -1,18 +1,13 @@
 package com.library.crudapp.library;
 
-
-
 import com.library.crudapp.domain.Book;
 import com.library.crudapp.domain.BookCopy;
 import com.library.crudapp.repositoryDao.BookCopyDao;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import java.util.List;
 import java.util.Optional;
 import static org.junit.Assert.*;
 
@@ -30,6 +25,7 @@ public class LibraryApplicationBookCopyTests {
 
     @Test
     public void testBookCopyAdd() {
+
         //Given
         Book book1 =  new Book("aaaaa","aaaaa",2017);
         BookCopy bookCopy = new BookCopy(book1,"rented");
@@ -48,45 +44,45 @@ public class LibraryApplicationBookCopyTests {
 
     @Test
     public void testCountBookCopyDao() {
-        //given
 
+        //Given
         Book book1 =  new Book("aaaaa","aaaaa",2017);
         Book book2 =  new Book("aaaaa","aaaaa",2017);
 
         BookCopy copy1 = new BookCopy(book1,STATUS_AVAILABLE);
         BookCopy copy2 = new BookCopy(book2,STATUS_RENTED);
 
-        //when
+        //When
         bookCopyDao.save(copy1);
         bookCopyDao.save(copy2);
-        //then
 
+        //Then
         int copiesCount = bookCopyDao.countByBook_Title(book1.getTitle());
         assertEquals(2, copiesCount);
+
         //clean up
         bookCopyDao.delete(copy1);
         bookCopyDao.delete(copy2);
     }
 
-
     @Test
     public void testCountBookCopyAvailableTorent() {
-        //given
 
+        //Given
         Book book1 =  new Book("aaaaa","aaaaa",2017);
         Book book2 =  new Book("aaaaa","aaaaa",2017);
 
         BookCopy copy1 = new BookCopy(book1,STATUS_AVAILABLE);
-
         BookCopy copy2 = new BookCopy(book2,STATUS_RENTED);
 
-        //when
+        //When
         bookCopyDao.save(copy1);
         bookCopyDao.save(copy2);
-        //then
 
+        //Then
         int copiesCount = bookCopyDao.countByBookStatus(STATUS_AVAILABLE);
         assertEquals(1, copiesCount);
+
         //clean up
         bookCopyDao.delete(copy1);
         bookCopyDao.delete(copy2);

@@ -4,10 +4,7 @@ import com.library.crudapp.domain.Book;
 import com.library.crudapp.domain.BookCopy;
 import com.library.crudapp.domain.Rented;
 import com.library.crudapp.domain.User;
-import com.library.crudapp.repositoryDao.BookCopyDao;
 import com.library.crudapp.repositoryDao.RentedDao;
-import com.library.crudapp.repositoryDao.UserDao;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +28,7 @@ public class LibraryApplicationRentedTests {
 
     @Test
     public void testBookCopyRented() {
+
         //Given
         User user1 =new User("Jan","Nowak","2017-11-11");
         Book book1 =  new Book("aaaaa","aaaaa",2017);
@@ -46,12 +44,14 @@ public class LibraryApplicationRentedTests {
         Optional<Rented> readRented = rentedDao.findByRenetedId(id);
         assertEquals(id, readRented.get().getRenetedId());
         assertEquals(STATUS_RENTED, readRented.get().getBookCopy().getBookStatus());
+
         //CleanUp
         rentedDao.delete(rented);
     }
 
     @Test
     public void testBookCopyRurTUn() {
+
         //Given
         User user1 =new User("Jan","Nowak","2017-11-11");
         Book book1 =  new Book("aaaaa","aaaaa",2017);
@@ -59,14 +59,16 @@ public class LibraryApplicationRentedTests {
         BookCopy bookCopy1 = new BookCopy(book1,STATUS_RENTED);
         Rented rented = new Rented(new Date(1 / 2015),new Date(2 / 2015),user1,bookCopy1);
         rentedDao.save(rented);
-        //When
 
+        //When
         bookCopy1.setBookStatus(STATUS_AVAILABLE);
+
         //Then
         int id = rented.getRenetedId();
         Optional<Rented> readRented = rentedDao.findByRenetedId(id);
         assertEquals(id, readRented.get().getRenetedId());
         assertEquals(STATUS_AVAILABLE, bookCopy1.getBookStatus());
+
         //CleanUp
         rentedDao.delete(rented);
     }
