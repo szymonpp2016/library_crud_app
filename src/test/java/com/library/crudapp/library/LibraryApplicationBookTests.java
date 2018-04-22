@@ -29,7 +29,7 @@ public class LibraryApplicationBookTests {
         //Then
         int id = book.getBookId();
         Optional<Book> readBook = bookDao.findByBookId(id);
-        assertEquals(id, readBook.get().getBookId());
+        assertEquals(id, readBook.get().getBookId() );
 
         //CleanUp
         bookDao.delete(book);

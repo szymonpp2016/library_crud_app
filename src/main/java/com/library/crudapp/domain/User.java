@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -37,7 +38,7 @@ public class User {
     mappedBy = "user",
     cascade = CascadeType.ALL,
     fetch=FetchType.EAGER)
-    private List<Rented> readRented;
+    private List<Rented> readRented = new ArrayList<>();
 
       public User( String firstName, String lastName, String registartionDate) {
         this.firstName = firstName;

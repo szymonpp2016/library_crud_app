@@ -1,24 +1,13 @@
 package com.library.crudapp.service;
 
 import com.library.crudapp.domain.User;
-import com.library.crudapp.domain.dto.UserDto;
 import com.library.crudapp.repositoryDao.UserDao;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 
-
-@NoArgsConstructor
-@AllArgsConstructor
-@Getter
-@Setter
-@Service
+@Service // - adnotacje z loombocka nie są potrzebne w DbLibraryService
 public class DbLibraryService {
 
     @Autowired

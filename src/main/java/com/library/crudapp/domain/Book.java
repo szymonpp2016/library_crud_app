@@ -3,9 +3,9 @@ package com.library.crudapp.domain;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -20,6 +20,7 @@ public class Book {
     @Column(name = "BOOKID", unique = true)
     int bookId;
 
+
     @Column(name = "TITLE")
     private String title;
 
@@ -33,13 +34,11 @@ public class Book {
             mappedBy = "book",
             cascade = CascadeType.ALL,
             fetch=FetchType.EAGER)
-    private List<Book> readBook;
+    private List<BookCopy> readBook = new ArrayList<>();
 
     public Book(String title, String author, int yearOfPublication) {
         this.title=title;
         this.author=author;
         this.yearOfPublication = yearOfPublication;
     }
-
-
 }

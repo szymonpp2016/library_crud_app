@@ -66,14 +66,16 @@ public class LibraryApplicationBookCopyTests {
     }
 
     @Test
-    public void testCountBookCopyAvailableTorent() {
+    public void testCountBookCopyAvailableToRent() {
 
         //Given
         Book book1 =  new Book("aaaaa","aaaaa",2017);
-        Book book2 =  new Book("aaaaa","aaaaa",2017);
 
         BookCopy copy1 = new BookCopy(book1,STATUS_AVAILABLE);
-        BookCopy copy2 = new BookCopy(book2,STATUS_RENTED);
+        BookCopy copy2 = new BookCopy(book1,STATUS_RENTED);
+
+        book1.getReadBook().add(copy1);
+        book1.getReadBook().add(copy2);
 
         //When
         bookCopyDao.save(copy1);
