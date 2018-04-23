@@ -25,14 +25,6 @@ public class LibraryMapper {
                 userDto.getRegistartionDate());
 
     }
-    //tymczasowa metoda dla próby -ale nic nie dała
-    public UserDto mapDtoToUserDto(final UserDto userDto) {
-        return new UserDto(
-                userDto.getUserId(),
-                userDto.getFirstName(),
-                userDto.getLastName(),
-                userDto.getRegistartionDate());
-    }
 
     public UserDto mapUserToUserDto(final User user) {
         return new UserDto(
@@ -47,4 +39,8 @@ public class LibraryMapper {
                 .map(t -> new UserDto(t.getUserId(), t.getFirstName(), t.getLastName(),t.getRegistartionDate()))
                 .collect(Collectors.toList());
     }
+
+
+
+
 }

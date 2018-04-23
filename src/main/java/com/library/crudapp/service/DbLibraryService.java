@@ -26,7 +26,6 @@ public class DbLibraryService {
         return userDao.save(user);
     }
 
-
     public Optional<User> get(final int userId) {
         return userDao.findByUserId(userId);
     }
