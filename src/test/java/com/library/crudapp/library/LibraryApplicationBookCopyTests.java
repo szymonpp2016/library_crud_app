@@ -11,10 +11,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.Optional;
 import static org.junit.Assert.*;
 
-//@RunWith(SpringRunner.class)
-//@SpringBootTest
+@RunWith(SpringRunner.class)
+@SpringBootTest
 public class LibraryApplicationBookCopyTests {
-/*
+
     private static final String STATUS_RENTED="RENTED";
     private static final String  STATUS_AVAILABLE="AVAILABLE";
     public static final String STATUS_DAMAGED = "DAMAGED";
@@ -88,5 +88,5 @@ public class LibraryApplicationBookCopyTests {
         //clean up
         bookCopyDao.delete(copy1);
         bookCopyDao.delete(copy2);
-    } */
+    }
 }

@@ -14,10 +14,10 @@ import static org.junit.Assert.*;
 import java.util.Date;
 import java.util.Optional;
 
-//@RunWith(SpringRunner.class)
-//@SpringBootTest
+@RunWith(SpringRunner.class)
+@SpringBootTest
 public class LibraryApplicationRentedTests {
-/*
+
     private static final String STATUS_RENTED="RENTED";
     private static final String  STATUS_AVAILABLE="AVAILABLE";
     public static final String STATUS_DAMAGED = "DAMAGED";
@@ -71,5 +71,5 @@ public class LibraryApplicationRentedTests {
 
         //CleanUp
         rentedDao.delete(rented);
-    } */
+    }
 }
