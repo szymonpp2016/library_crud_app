@@ -28,7 +28,7 @@ public class DbLibraryService {
 
 
     public Optional<User> get(final int userId) {
-        return userDao.findById(userId);
+        return userDao.findByUserId(userId);
     }
 
     public void deleteUser(final int userId) {
