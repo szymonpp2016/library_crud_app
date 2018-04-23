@@ -45,4 +45,11 @@ public class User {
         this.lastName = lastName;
         this.registartionDate = registartionDate;
     }
+
+    public User(int userId, String firstName, String lastName, String registartionDate) {
+       this.userId=userId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.registartionDate = registartionDate;
+    }
 }

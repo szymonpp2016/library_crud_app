@@ -10,6 +10,14 @@ import java.util.stream.Collectors;
 @Component
 public class LibraryMapper {
 
+    public User mapUpadteUserDtoToUser(final UserDto userDto) {
+        return new User(
+                userDto.getUserId(),
+                userDto.getFirstName(),
+                userDto.getLastName(),
+                userDto.getRegistartionDate());
+    }
+
     public User mapUserDtoToUser(final UserDto userDto) {
         return new User(
                 userDto.getFirstName(),

@@ -1,11 +1,9 @@
 buildscript {
 	ext {
-		springBootVersion = '2.0.1.RELEASE'
+		springBootVersion = '1.5.10.RELEASE'
 	}
 	repositories {
 		mavenCentral()
-		maven { url "https://repo.spring.io/snapshot" }
-		maven { url "https://repo.spring.io/milestone" }
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
@@ -15,27 +13,28 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
-apply plugin: 'io.spring.dependency-management'
+apply plugin: 'io.spring.dependency-management' //dane od modułu 17.5 - serwewr HEroku
 
-group = 'com.library'
+//apply plugin: 'war'   //dane tylko do tomcata wersja modulu 16-17
+
+group = 'com.crud'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
 repositories {
 	mavenCentral()
-	maven { url "https://repo.spring.io/snapshot" }
-	maven { url "https://repo.spring.io/milestone" }
-
 }
 
-
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter-data-jpa')
-	compile('org.springframework.boot:spring-boot-starter-jdbc')
-	compile('org.springframework.boot:spring-boot-starter-validation')
+
 	compile('org.springframework.boot:spring-boot-starter-web')
-	compile('org.mybatis.spring.boot:mybatis-spring-boot-starter:1.3.2')
-	runtime('mysql:mysql-connector-java')
-	compileOnly('org.projectlombok:lombok')
+	compile('org.springframework.boot:spring-boot-starter-data-jpa')
+	testCompile('junit:junit:4.12')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+	compile('org.projectlombok:lombok')
+	//compile('mysql:mysql-connector-java')  //dane tylko do mySQL tomcata wersja modulu 12-17
+	// providedRuntime("org.springframework.boot:spring-boot-starter-tomcat") //dane tylko do tomcata wersja modulu 16-17
+
+	 compile('org.postgresql:postgresql') //dane od modułu 17.5 - serwewr HEroku
+	 compile('org.springframework.boot:spring-boot-starter-mail:1.5.7.RELEASE') //dane od modułu 17.5 - serwewr HEroku
 }

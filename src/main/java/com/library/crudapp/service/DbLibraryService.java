@@ -31,8 +31,8 @@ public class DbLibraryService {
         return userDao.findById(userId);
     }
 
-    public void deleteUser(User user) {
-        userDao.delete(user);
+    public void deleteUser(final int userId) {
+        userDao.deleteByUserId(userId);
     }
 
 }
